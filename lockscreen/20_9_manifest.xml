@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Lockscreen version="1" frameRate="30"  displayDesktop="true" screenWidth="1080" id="201703293827" >
+<!-- 版本1  帧数30  是否显示桌面是 屏幕宽度1080   -->
+
+	<VariableBinders>
+	变量绑定
+  	<ContentProviderBinder
+	内容提供者绑定
+  		uriFormat="content://weather/weather"
+  		columns="city_name,temperature,temperature_range,description,weather_type"
+  		countName="hasweather">
+  		<Variable name="weather_id" type="int" column="weather_type"/>
+  		<Variable name="weather_location" type="string" column="city_name"/>
+  		<Variable name="weather_temperature_range" type="string" column="temperature_range"/>
+  		<Variable name="weather_description" type="string" column="description"/>
+  	</ContentProviderBinder>
+  </VariableBinders>
+	
+<Image src="bj3.jpg"/>
+<Image src="bg.png"/>
+	<Time x="540" y="207" align="center" alignV="center" src="time.png" />
+	<Group x="100" y="100" >
+	<Image x="200" y="230" srcid="#year/1000" src="date.png"/>
+	<Image x="200+33" y="230" srcid="#year/100%10" src="date.png"/>
+	<Image x="200+66" y="230"  srcid="#year%100/10" src="date.png"/>
+	<Image x="200+99" y="230"  srcid="#year%10" src="date.png"/>
+	<Image x="200+129" y="230" src="date_dot.png"/>
+	<Image x="200+159" y="230" src="date.png" srcid="(#month+1)/10"/>
+	<Image x="200+192" y="230" src="date.png" srcid="(#month+1)%10"/>
+	<Image x="200+222" y="230" src="date_dot.png"/>
+	<Image x="200+252" y="230" src="date.png" srcid="#date/10"/>
+	<Image x="200+285" y="230" src="date.png" srcid="#date%10"/>
+	<Image x="200+350" y="230" src="week.png" srcid="#day_of_week"/>
+	</Group>
+	<!-- 流星 -->
+  	<Image x="938" y="134" align="center" alignV="center" src="lx_1.png">
+	<PositionAnimation>
+				<Position x="0" y="0"   time="0"/>
+				<Position x="-146" y="280" time="1000"/>
+				<Position x="0" y="0" time="1001"/>
+				<Position x="0" y="0" time="3000"/>
+			</PositionAnimation>
+			<AlphaAnimation>
+				<Alpha a="255" time="0"/>
+				<Alpha a="0" time="1000"/>
+				<Alpha a="0" time="3000"/>
+			</AlphaAnimation>	
+		</Image>
+
+		<Image x="411" y="88" align="center" alignV="center" src="lx_2.png">
+		<PositionAnimation>
+				<Position x="0" y="0"   time="0"/>
+				<Position x="0" y="0"   time="800"/>
+				<Position x="-165" y="284" time="2000"/>
+				<Position x="0" y="0" time="2001"/>
+				<Position x="0" y="0" time="3000"/>
+			</PositionAnimation>
+			<AlphaAnimation>
+				<Alpha a="0" time="0"/>
+				<Alpha a="0" time="800"/>
+				<Alpha a="255" time="801"/>
+				<Alpha a="0" time="2000"/>
+				<Alpha a="0" time="3000"/>
+			</AlphaAnimation>			
+		</Image>
+
+		<Image x="709" y="120" align="center" alignV="center" src="lx_3.png">
+		<PositionAnimation>
+				<Position x="0" y="0"   time="0"/>
+				<Position x="0" y="0"   time="1500"/>
+				<Position x="-118" y="304" time="2500"/>
+				<Position x="0" y="0" time="2501"/>
+				<Position x="0" y="0" time="3000"/>
+			</PositionAnimation>
+			<AlphaAnimation>
+				<Alpha a="0" time="0"/>
+				<Alpha a="0" time="1500"/>
+				<Alpha a="255" time="1501"/>
+				<Alpha a="0" time="2500"/>
+				<Alpha a="0" time="3000"/>		
+			</AlphaAnimation>	
+		</Image>
+
+
+	<Image x="321" y="752" centerX="245" centerY="245" src="pan_1.png">
+		<RotationAnimation>
+  					<Rotation angle="0" time="0"/>
+  					<Rotation angle="-3600" time="600000"/>
+  				</RotationAnimation>	
+	</Image>
+	<Image x="115" y="542" centerX="450" centerY="450" src="pan.png" visibility="eq(#unlocker.state,0)">
+	<RotationAnimation>
+  					<Rotation angle="0" time="0"/>
+  					<Rotation angle="3600" time="600000"/>
+  				</RotationAnimation>			
+	</Image>
+	<Image x="525" y="937" src="guang.png" visibility="eq(#unlocker.state,0)">
+		<AlphaAnimation>
+		<Alpha a="0" time="0"/>
+		<Alpha a="155" time="400"/>	
+		<Alpha a="0" time="800"/>
+	</AlphaAnimation>
+	</Image>
+	<Image x="525" y="937" src="guang.png" visibility="ne(#unlocker.state,0)">
+	</Image>
+<!--星星 -->
+<Group visibility="ne(#unlocker.state,0)">
+<Image x="210" y="642" centerX="350" centerY="350" src="pan_2.png">
+	<RotationAnimation>
+  					<Rotation angle="0" time="0"/>
+  					<Rotation angle="3600" time="600000"/>
+  	</RotationAnimation>			
+	</Image>
+<Image x="251+#unlocker.move_y*4" y="1236-#unlocker.move_y*4" centerX="310" centerY="-270" src="star_1.png">	
+	</Image>
+<Image x="445+#unlocker.move_y*4" y="1322-#unlocker.move_y*4" centerX="120" centerY="-350" src="star_2.png">
+	</Image>
+
+<Image x="641-#unlocker.move_y*4" y="1300-#unlocker.move_y*4" centerX="-80" centerY="-330" src="star_3.png">	
+	</Image>
+
+<Image x="800-#unlocker.move_y*4" y="1194-#unlocker.move_y*4" centerX="-230" centerY="-265" src="star_4.png">
+	</Image>
+
+<Image x="890-#unlocker.move_y*4" y="995-#unlocker.move_y*4" centerX="310" centerY="-270" src="star_5.png">
+	</Image>
+
+<Image x="885-#unlocker.move_y*4" y="793+#unlocker.move_y*4" centerX="310" centerY="-270" src="star_6.png">
+	</Image>
+	
+<Image x="780-#unlocker.move_y*4" y="630+#unlocker.move_y*4" centerX="310" centerY="-270" src="star_7.png">
+	</Image>
+
+<Image x="611-#unlocker.move_y*4" y="550+#unlocker.move_y*4" centerX="310" centerY="-270" src="star_8.png">
+	</Image>
+
+<Image x="375+#unlocker.move_y*4" y="550+#unlocker.move_y*4" centerX="310" centerY="-270" src="star_9.png">
+	</Image>
+
+<Image x="208+#unlocker.move_y*4" y="650+#unlocker.move_y*4" centerX="310" centerY="-270" src="star_10.png">
+	</Image>
+<Image x="100+#unlocker.move_y*4" y="840+#unlocker.move_y*4" centerX="310" centerY="-270" src="star_11.png">
+	</Image>
+<Image x="115+#unlocker.move_y*4" y="1041-#unlocker.move_y*4" centerX="310" centerY="-270" src="star_12.png">
+	</Image>
+</Group>
+
+<!-- 解锁 -->
+<Group y="#screen_height-1920">
+	<Image x="549" y="1551" src="unlock_2.png" visibility="eq(#unlocker.state,0)">
+		<AlphaAnimation>
+		<Alpha a="0" time="0"/>
+		<Alpha a="0" time="1000"/>	
+		<Alpha a="255" time="1500"/>
+		<Alpha a="255" time="2000"/>
+		<Alpha a="0" time="801"/>
+	</AlphaAnimation>	
+	</Image>
+	<Image x="544" y="1616" src="unlock_1.png" visibility="eq(#unlocker.state,0)">
+	<AlphaAnimation>
+		<Alpha a="0" time="0"/>
+		<Alpha a="255" time="500"/>	
+		<Alpha a="255" time="2000"/>
+		<Alpha a="0" time="2001"/>
+	</AlphaAnimation>	
+	</Image>
+	<Image x="470" y="1668+#unlocker.move_y" src="unlock.png"></Image>
+</Group>
+<Unlocker name="unlocker" bounceInitSpeed="2000" bounceAcceleration="3000" >
+		<StartPoint x="470" y="#screen_height-1920+1668" w="200" h="200">
+		</StartPoint>
+		<EndPoint x="470" y="#screen_height-1920+1668-300" w="200" h="200">
+			<Path x="470" y="#screen_height-1920+1668" w="200" h="200">
+				<Position x="0" y="0"/>
+				<Position x="0" y="-250"/>
+			</Path>
+		</EndPoint>
+</Unlocker>
+
+<Group x="-240" y="-200">
+  <Image x="341" y="840.5" alignV="center" align="center" src="dx1.png" visibility="#sms_unread_count" />  
+  <Text  x="420" y="840" alignV="center" align="center"  color="#6de3fb"  size="48" format="%d" paras="#sms_unread_count" visibility="#sms_unread_count"/>
+  <Image x="341.5" y="740" alignV="center" align="center"   src="dh1.png" visibility="#call_missed_count"  />    
+  <Text  x="420" y="740" alignV="center" align="center"  color="#6de3fb"  size="48" format="%d" paras="#call_missed_count" visibility="#call_missed_count"/> 
+</Group>
+  <!-- am,pm -->
+  <Group x="30" y="-20">
+<Image x="813" y="191" alignV="center" align="center" src="am.png" visibility="eq(#hour,0)+eq(#hour,1)+eq(#hour,2)+eq(#hour,3)+eq(#hour,4)+eq(#hour,5)+eq(#hour,6)+eq(#hour,7)+eq(#hour,8)+eq(#hour,9)+eq(#hour,10)+eq(#hour,11)"/>
+  <Image x="813" y="191" alignV="center" align="center" src="pm.png" visibility="eq(#hour,12)+eq(#hour,13)+eq(#hour,14)+eq(#hour,15)+eq(#hour,16)+eq(#hour,17)+eq(#hour,18)+eq(#hour,19)+eq(#hour,20)+eq(#hour,21)+eq(#hour,22)+eq(#hour,23)"/> 
+</Group>
+
+<!-- 电量不足提醒 -->
+<Text x="#screen_width/2" y="(#screen_height)-50" category="BatteryLow" alignV="bottom" color="#ffffff" size="48" text="电量不足！" alpha="180" align="center"/>
+
+<!-- 充电中提醒 --> 
+<Text x="#screen_width/4" y="(#screen_height)-50" category="Charging" alignV="bottom" color="#ffffff" align="center" size="42" format="充电中 %d%%    " alpha="180" paras="#battery_level"/>
+
+<!-- 电量充满提醒 --> 
+<Text x="#screen_width/2" y="(#screen_height)-50" category="BatteryFull" alignV="bottom" color="#ffffff" size="42" text="充电完成!" alpha="180" align="center"/>
+</Lockscreen>

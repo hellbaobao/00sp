@@ -1,0 +1,25 @@
+<Group x="100" y="100" >
+    <Image x="938" y="134" align="center" alignV="center" src="lx_1.png">
+        <!--位置动画-->
+        <PositionAnimation>
+            <!--一秒闪过 逐渐消失 剩下两秒 不动切透明 相当于延时-->
+            <Position x="0" y="0"   time="0"/>
+            <Position x="-146" y="280" time="1000"/>
+            <Position x="0" y="0" time="1001"/>
+            <Position x="0" y="0" time="3000"/>
+        </PositionAnimation>
+        <!--透明度动画-->
+        <AlphaAnimation>
+            <Alpha a="255" time="0"/>
+            <Alpha a="0" time="1000"/>
+            <Alpha a="0" time="3000"/>
+        </AlphaAnimation>
+    </Image>
+    <Image x="321" y="752" centerX="245" centerY="245" src="pan_1.png">
+        <RotationAnimation>
+            <!--逆时针10圈 600秒-->
+            <Rotation angle="0" time="0"/>
+            <Rotation angle="-3600" time="600000"/>
+        </RotationAnimation>	
+    </Image>
+</Group>
