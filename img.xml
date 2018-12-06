@@ -22,4 +22,10 @@
             <Rotation angle="-3600" time="600000"/>
         </RotationAnimation>	
     </Image>
+    <Image x="210" y="642" centerX="350" centerY="350" src="pan_2.png">
+        <RotationAnimation>
+            <Rotation angle="0" time="0"/>
+            <Rotation angle="3600" time="600000"/>
+        </RotationAnimation>			
+    </Image>
 </Group>
