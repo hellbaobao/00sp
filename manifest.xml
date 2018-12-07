@@ -124,8 +124,7 @@
             <Alpha a="0" time="800"/>
         </AlphaAnimation>
     </Image>
-    <Image x="525" y="937" src="guang.png" visibility="ne(#unlocker.state,0)">
-    </Image>
+    <Image x="525" y="937" src="guang.png" visibility="ne(#unlocker.state,0)"/>
     <!--星星 -->
     <Group visibility="ne(#unlocker.state,0)">
         <Image x="210" y="642" centerX="350" centerY="350" src="pan_2.png">

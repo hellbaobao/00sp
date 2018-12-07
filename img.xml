@@ -1,31 +1,51 @@
-<Group x="100" y="100" >
-    <Image x="938" y="134" align="center" alignV="center" src="lx_1.png">
-        <!--位置动画-->
-        <PositionAnimation>
-            <!--一秒闪过 逐渐消失 剩下两秒 不动切透明 相当于延时-->
-            <Position x="0" y="0"   time="0"/>
-            <Position x="-146" y="280" time="1000"/>
-            <Position x="0" y="0" time="1001"/>
-            <Position x="0" y="0" time="3000"/>
-        </PositionAnimation>
-        <!--透明度动画-->
-        <AlphaAnimation>
-            <Alpha a="255" time="0"/>
-            <Alpha a="0" time="1000"/>
-            <Alpha a="0" time="3000"/>
-        </AlphaAnimation>
-    </Image>
-    <Image x="321" y="752" centerX="245" centerY="245" src="pan_1.png">
-        <RotationAnimation>
-            <!--逆时针10圈 600秒-->
-            <Rotation angle="0" time="0"/>
-            <Rotation angle="-3600" time="600000"/>
-        </RotationAnimation>	
-    </Image>
-    <Image x="210" y="642" centerX="350" centerY="350" src="pan_2.png">
-        <RotationAnimation>
-            <Rotation angle="0" time="0"/>
-            <Rotation angle="3600" time="600000"/>
-        </RotationAnimation>			
-    </Image>
-</Group>
+<Lockscreen version="1" frameRate="30"  displayDesktop="true" screenWidth="1080" id="201703293827" >
+    <Group x="0" y="0" >
+        <Image src="bj1.jpg"/>
+        <Image src="bg.png"/>
+    </Group>
+    <Group x="100" y="100" >
+        <!--2018分解成 2 0 1 8 -->
+        <Image x="200" y="230"     src="date.png" srcid="#year/1000" /> 
+        <Image x="200+33" y="230"  src="date.png" srcid="#year/100%10" />
+        <Image x="200+66" y="230"  src="date.png" srcid="#year%100/10" />
+        <Image x="200+99" y="230"  src="date.png" srcid="#year%10" />
+        <!--日期间隔 点-->
+        <Image x="200+129" y="230" src="date_dot.png"/>
+        <!--12月分解成 1 2-->
+        <Image x="200+159" y="230" src="date.png" srcid="(#month+1)/10"/>
+        <Image x="200+192" y="230" src="date.png" srcid="(#month+1)%10"/>
+        <Image x="200+222" y="230" src="date_dot.png"/>
+        <!--日期分解-->
+        <Image x="200+252" y="230" src="date.png" srcid="#date/10"/>
+        <Image x="200+285" y="230" src="date.png" srcid="#date%10"/>
+        <!--星期-->
+        <Image x="200+350" y="230" src="week.png" srcid="#day_of_week"/>
+    </Group>
+    <Group x="0" y="0" >
+        <Image x="321" y="752" centerX="245" centerY="245" src="pan_1.png">
+            <RotationAnimation>
+                <!--逆时针10圈 600秒-->
+                <Rotation angle="0" time="0"/>
+                <Rotation angle="-3600" time="600000"/>
+            </RotationAnimation>	
+        </Image>
+        <!--当锁屏状态为0时可见--> 
+        <Image x="115" y="542" centerX="450" centerY="450" src="pan.png" visibility="eq(#unlocker.state,0)">
+            <RotationAnimation>
+                <!--顺时针10圈 600秒-->
+                <Rotation angle="0" time="0"/>
+                <Rotation angle="3600" time="600000"/>
+            </RotationAnimation>			
+        </Image>
+    </Group>
+    <Group x="-240" y="-200">
+        <Image x="341" y="840.5" alignV="center" align="center" src="dx1.png" visibility="#sms_unread_count" />  
+        <Text  x="420" y="840" alignV="center" align="center"  color="#6de3fb"  size="48" format="%d" paras="#sms_unread_count" visibility="#sms_unread_count"/>
+        <Image x="341.5" y="740" alignV="center" align="center"   src="dh1.png" visibility="#call_missed_count"  />    
+        <Text  x="420" y="740" alignV="center" align="center"  color="#6de3fb"  size="48" format="%d" paras="#call_missed_count" visibility="#call_missed_count"/> 
+    </Group>
+    <Group x="30" y="-20">
+        <Image x="813" y="191" alignV="center" align="center" src="am.png" visibility="eq(#hour,0)+eq(#hour,1)+eq(#hour,2)+eq(#hour,3)+eq(#hour,4)+eq(#hour,5)+eq(#hour,6)+eq(#hour,7)+eq(#hour,8)+eq(#hour,9)+eq(#hour,10)+eq(#hour,11)"/>
+        <Image x="813" y="191" alignV="center" align="center" src="pm.png" visibility="eq(#hour,12)+eq(#hour,13)+eq(#hour,14)+eq(#hour,15)+eq(#hour,16)+eq(#hour,17)+eq(#hour,18)+eq(#hour,19)+eq(#hour,20)+eq(#hour,21)+eq(#hour,22)+eq(#hour,23)"/> 
+    </Group>
+</Lockscreen>

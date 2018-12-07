@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <script src="jquery.min.js" type="text/javascript"></script>
+        <script src="jquery.rotate.min.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            function addDom(id, src, h, w, x, y) {
+                var imgStr = '<img id="' + id + '" src="' + src + '" style="position: absolute;width:' + h + 'px;height:' + w + 'px;left:' + x + 'px;top:' + y + 'px;">';
+                $("#lockbg").append(imgStr);
+            }
+
+
+            function ratateAction(id, jd, to, time) {
+                $('#' + id).rotate({
+                    angle: jd,
+                    animateTo: to,
+                    duration: time
+                });
+            }
+
+            $(function () {
+                addDom("img0", "lockscreen/lx_1.png", 116, 304, 938, 134);
+
+                $("#img0").animate({left: "938px", top: "134px",opacity: "1"}, 0).animate({left: "792px", top: "414px",opacity: "0"}, 1000).animate({left: "938px", top: "134px"}, 1001).animate({left: "938px", top: "134px",opacity: "0"}, 3000);
+
+                addDom("img1", "lockscreen/pan_1.png", 494, 494, 321, 752);
+                ratateAction("img1", 0, 0, 0);
+                ratateAction("img1", 0, -3600, 600000);
+                addDom("img2", "lockscreen/pan_2.png", 707, 708, 210, 642);
+                ratateAction("img2", 0, 0, 0);
+                ratateAction("img2", 0, 3600, 600000);
+                addDom("img3", "lockscreen/lx_2.png", 168, 279, 411, 88);
+                $("#img3").animate({left: "411px", top: "88px"}, 0);
+                $("#img3").animate({left: "411px", top: "88px"}, 800);
+                $("#img3").animate({left: "246px", top: "372px"}, 2000);
+                $("#img3").animate({left: "411px", top: "88px"}, 2001);
+                $("#img3").animate({left: "411px", top: "88px"}, 3000);
+                $("#img3").animate({opacity: "0"}, 0);
+                $("#img3").animate({opacity: "0"}, 800);
+                $("#img3").animate({opacity: "1"}, 801);
+                $("#img3").animate({opacity: "0"}, 2000);
+                $("#img3").animate({opacity: "0"}, 3000);
+                addDom("img4", "lockscreen/lx_3.png", 152, 289, 709, 120);
+                $("#img4").animate({left: "709px", top: "120px"}, 0);
+                $("#img4").animate({left: "709px", top: "120px"}, 1500);
+                $("#img4").animate({left: "591px", top: "424px"}, 2500);
+                $("#img4").animate({left: "709px", top: "120px"}, 2501);
+                $("#img4").animate({left: "709px", top: "120px"}, 3000);
+                $("#img4").animate({opacity: "0"}, 0);
+                $("#img4").animate({opacity: "0"}, 1500);
+                $("#img4").animate({opacity: "1"}, 1501);
+                $("#img4").animate({opacity: "0"}, 2500);
+                $("#img4").animate({opacity: "0"}, 3000);
+                addDom("img5", "lockscreen/pan_1.png", 494, 494, 321, 752);
+                ratateAction("img5", 0, 0, 0);
+                ratateAction("img5", 0, -3600, 600000);
+                addDom("img6", "lockscreen/pan.png", 902, 907, 115, 542);
+                ratateAction("img6", 0, 0, 0);
+                ratateAction("img6", 0, 3600, 600000);
+                addDom("img7", "lockscreen/guang.png", 79, 104, 525, 937);
+                $("#img7").animate({opacity: "0"}, 0);
+                $("#img7").animate({opacity: "0.6078431372549"}, 400);
+                $("#img7").animate({opacity: "0"}, 800);
+            });
+
+
+        </script>
+    </head>
+    <body>
+        <div id="lockbg" style="background-color: #000;width:1080px;height:1920px;"></div>
+    </body>
+</html>
